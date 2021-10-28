@@ -9,4 +9,5 @@ import lombok.Setter;
 @Setter
 public class ResponseData {
     private int intValue;
+    private CharSequence sequence;
 }

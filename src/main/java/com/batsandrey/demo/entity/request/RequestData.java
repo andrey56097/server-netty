@@ -8,6 +8,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class RequestData {
-    private int intValue;
     private String stringValue;
 }

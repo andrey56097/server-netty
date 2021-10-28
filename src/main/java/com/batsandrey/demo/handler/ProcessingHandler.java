@@ -13,10 +13,16 @@ public class ProcessingHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
         RequestData requestData = (RequestData) msg;
+        String message = requestData.getStringValue();
         ResponseData responseData = new ResponseData();
-        responseData.setIntValue(requestData.getIntValue() * 2);
+
+        if (message.isEmpty() == false && message !=null) {
+            responseData.setSequence("1\r\n");
+        } else {
+            responseData.setSequence("0\r\n");
+        }
+
         ChannelFuture future = ctx.writeAndFlush(responseData);
         future.addListener(ChannelFutureListener.CLOSE);
-        System.out.println(requestData);
     }
 }

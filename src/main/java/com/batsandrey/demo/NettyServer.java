@@ -27,7 +27,6 @@ public class NettyServer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         new NettyServer(port).run();
     }
 
